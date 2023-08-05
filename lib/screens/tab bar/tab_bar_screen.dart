@@ -1,7 +1,9 @@
+import 'package:amlak_app/bloc/auth/register/register_bloc.dart';
 import 'package:amlak_app/screens/login/login_screen.dart';
 import 'package:amlak_app/screens/sign_up/sign_up_scree.dart';
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
 class TabBarScreen extends StatefulWidget {
@@ -58,7 +60,7 @@ class _TabBarScreenState extends State<TabBarScreen> {
               child: TabBarView(
                 children: [
                   LoginScreen(),
-                  SignInScreen(),
+                 BlocProvider(create: (context)=>RegisterBloc(),child: SignInScreen(),)
                 ],
               ),
             ),
