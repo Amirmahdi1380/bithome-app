@@ -18,91 +18,79 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: Column(
         children: [
-          Expanded(
-            child: Container(
-              width: double.infinity,
-              color: Colors.blue,
-              child: SvgPicture.asset(
-                'assets/images/login_img.svg',
-              ),
-            ),
-          ),
-          Expanded(
-            flex: 2,
-            child: Padding(
-              padding: const EdgeInsets.all(35.0),
-              child: Directionality(
-                textDirection: TextDirection.rtl,
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      TextFormField(
-                        controller: mobileNumberController,
-                        decoration: InputDecoration(
-                          border: const OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black),
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(15),
-                            ),
-                          ),
-                          labelText: 'شماره موبایل',
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15),
-                            borderSide: const BorderSide(
-                              color: Colors.black,
-                              width: 3,
-                            ),
+          Padding(
+            padding: const EdgeInsets.all(35.0),
+            child: Directionality(
+              textDirection: TextDirection.rtl,
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    TextFormField(
+                      controller: mobileNumberController,
+                      decoration: InputDecoration(
+                        border: const OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.black),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(15),
                           ),
                         ),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Please enter your mobile number';
-                          }
-                          return null;
-                        },
-                      ),
-                      const SizedBox(height: 10.0),
-                      Row(
-                        children: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context)
-                                  .push(MaterialPageRoute(builder: (context) {
-                                return SignInScreen();
-                              }));
-                            },
-                            child: const Text(
-                              'اکانت ندارم!',
-                            ),
-                          ),
-                        ],
-                      ),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: const Size(80, 50),
-                          shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(10),
-                            ),
+                        labelText: 'شماره موبایل',
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15),
+                          borderSide: const BorderSide(
+                            color: Colors.black,
+                            width: 3,
                           ),
                         ),
-                        onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            // Perform sign-in functionality here
-
-                            String mobileNumber = mobileNumberController.text;
-
-                            // Print the values for testing
-
-                            print('Mobile Number: $mobileNumber');
-                          }
-                        },
-                        child: Text('ادامه'),
                       ),
-                    ],
-                  ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Please enter your mobile number';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(height: 10.0),
+                    Row(
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context)
+                                .push(MaterialPageRoute(builder: (context) {
+                              return SignInScreen();
+                            }));
+                          },
+                          child: const Text(
+                            'اکانت ندارم!',
+                          ),
+                        ),
+                      ],
+                    ),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size(80, 50),
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10),
+                          ),
+                        ),
+                      ),
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          // Perform sign-in functionality here
+
+                          String mobileNumber = mobileNumberController.text;
+
+                          // Print the values for testing
+
+                          print('Mobile Number: $mobileNumber');
+                        }
+                      },
+                      child: Text('ادامه'),
+                    ),
+                  ],
                 ),
               ),
             ),
