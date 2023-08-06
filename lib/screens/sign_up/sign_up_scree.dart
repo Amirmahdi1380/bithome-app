@@ -196,11 +196,11 @@ class _SignInScreenState extends State<SignInScreen> {
                                 // Perform sign-in functionality here
                                 String firstName = firstNameController.text;
                                 String lastName = lastNameController.text;
-                                int dob = int.parse(dobController.text);
-                                int nationalId =
-                                    int.parse(nationalIdController.text);
-                                int mobileNumber =
-                                    int.parse(mobileNumberController.text);
+                                String dob = dobController.text;
+                                String nationalId =
+                                    nationalIdController.text;
+                                String mobileNumber =
+                                    mobileNumberController.text;
 
                                 // Print the values for testing
                                 print('First Name: $firstName');
@@ -213,9 +213,9 @@ class _SignInScreenState extends State<SignInScreen> {
                                 RegisterRequestEvent(
                                   firstNameController.text,
                                   lastNameController.text,
-                                  int.parse(dobController.text),
-                                  int.parse(nationalIdController.text),
-                                  int.parse(mobileNumberController.text),
+                                  dobController.text,
+                                  nationalIdController.text,
+                                  mobileNumberController.text,
                                 ),
                               );
                               // Navigator.of(context).push(

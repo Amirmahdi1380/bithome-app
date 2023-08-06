@@ -7,18 +7,18 @@ import '../datasource/authentication_datasource.dart';
 
 abstract class IAuthenticationRepository {
   Future<Either<String, String>> register(String first_name, String last_name,
-      int national_code, int mobile, int birthday);
+      String national_code, String mobile, String birthday);
 }
 
 class AuthenticationRemote extends IAuthenticationRepository {
     final IAuthenthicationDatasource _datasource = locator.get();
   final SharedPreferences _sharedPreferences = locator.get();
-  Future<Either<String, String>> register(String first_name, String last_name, int national_code, int mobile, int birthday) async{
+  Future<Either<String, String>> register(String first_name, String last_name, String national_code, String mobile, String birthday) async{
     try {
       // await _datasource.register('amirmahdi', '12345678', '12345678');
       return right('ثبت نام انجام شد !');
-    } on ApiExeption catch (ex) {
-      return left(ex.message ?? 'null');
+    } catch (e){
+      return left(e.toString());
     }
   }
 }
