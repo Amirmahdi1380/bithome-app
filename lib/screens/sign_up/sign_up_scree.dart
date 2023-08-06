@@ -197,8 +197,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                 String firstName = firstNameController.text;
                                 String lastName = lastNameController.text;
                                 String dob = dobController.text;
-                                String nationalId =
-                                    nationalIdController.text;
+                                String nationalId = nationalIdController.text;
                                 String mobileNumber =
                                     mobileNumberController.text;
 
@@ -213,9 +212,9 @@ class _SignInScreenState extends State<SignInScreen> {
                                 RegisterRequestEvent(
                                   firstNameController.text,
                                   lastNameController.text,
-                                  dobController.text,
                                   nationalIdController.text,
                                   mobileNumberController.text,
+                                  dobController.text,
                                 ),
                               );
                               // Navigator.of(context).push(

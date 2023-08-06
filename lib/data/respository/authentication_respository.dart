@@ -11,14 +11,22 @@ abstract class IAuthenticationRepository {
 }
 
 class AuthenticationRemote extends IAuthenticationRepository {
-    final IAuthenthicationDatasource _datasource = locator.get();
+  final IAuthenthicationDatasource _datasource = locator.get();
   final SharedPreferences _sharedPreferences = locator.get();
-  Future<Either<String, String>> register(String first_name, String last_name, String national_code, String mobile, String birthday) async{
+  Future<Either<String, String>> register(String first_name, String last_name,
+      String national_code, String mobile, String birthday) async {
     try {
-      // await _datasource.register('amirmahdi', '12345678', '12345678');
+      var res = await _datasource.register(
+        first_name,
+        last_name,
+        national_code,
+        mobile,
+        birthday,
+      );
+
       return right('ثبت نام انجام شد !');
-    } catch (e){
-      return left(e.toString());
+    } on ApiExeption catch (ex) {
+      return left(ex.message ?? 'null');
     }
   }
 }

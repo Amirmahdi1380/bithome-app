@@ -9,7 +9,9 @@ var locator = GetIt.instance;
 Future<void> getItInit() async {
   locator.registerSingleton<Dio>(
     Dio(
-      BaseOptions(baseUrl: 'http://192.168.100.36:8000/api'),
+      BaseOptions(
+          baseUrl: 'http://192.168.100.36:8000/api',
+          headers: {'Accept': 'application/json'}),
     ),
   );
   locator.registerSingleton<SharedPreferences>(
